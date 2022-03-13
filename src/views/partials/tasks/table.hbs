@@ -1,0 +1,39 @@
+{{#if task}}
+  <table class="table table-bordered table-hover table-dark">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each task}}
+        <tr>
+          <td>{{@index}}</td>
+          <td>{{title}}</td>
+          <td>{{description}}</td>
+          <td>
+            {{#if done}}
+              <a href="/toogleDone/{{_id}}" class="btn btn-dark">Undone</a>
+            {{else}}
+              <a href="/toogleDone/{{_id}}" class="btn btn-success">Done</a>
+            {{/if}}
+
+            <a href="/delete/{{_id}}" class="btn btn-danger">Delete</a>
+            <a href="/edit/{{_id}}" class="btn btn-info">Edit</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <div class="h-100 d-flex aling-items-center justify-content-center">
+    <div class="text-center">
+      <h1>No Tasks</h1>
+      <img src="/assets/deadpool.png" alt="" />
+    </div>
+  </div>
+
+{{/if}}
